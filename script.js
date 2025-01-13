@@ -1,4 +1,9 @@
 // Smooth scrolling for section navigation
-document.getElementById('arrow-btn').addEventListener('click', () => {
-    document.querySelector('#journey').scrollIntoView({ behavior: 'smooth' });
+document.querySelectorAll('a[href^="#"], #arrow-btn').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth',
+        });
+    });
 });
